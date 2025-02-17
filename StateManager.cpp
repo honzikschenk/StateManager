@@ -42,7 +42,6 @@ private:
         return nullptr;
     }
 
-    bool noStates;
     State dummyState;
 
     static bool dummyStateFunction() {
@@ -62,8 +61,6 @@ public:
         dummyState.stateName = "dummyState";
         dummyState.stateFunction = dummyStateFunction;
         dummyState.transitionToState = dummyTransitionToState;
-
-        noStates = true;
 
         activeState = dummyState;
 
@@ -184,8 +181,6 @@ public:
         states.erase(find(states.begin(), states.end(), *state));
 
         if (states.size() == 0) {
-            noStates = true;
-
             activeState = dummyState;
 
             states.push_back(dummyState);
