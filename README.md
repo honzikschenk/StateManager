@@ -8,4 +8,4 @@ StateManager is a library that provides easy and efficient management of differe
 
 ## How to run
 
-`g++ -std=c++11 -o StateManager StateManager.cpp && ./StateManager`
+`g++ -std=c++11 -o StateManagerTest StateManager.cpp && ./StateManagerTest`
