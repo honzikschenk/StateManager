@@ -108,7 +108,7 @@ public:
 
         for (auto &s : states)
         {
-            if (s.transitionToState(activeState.stateName) && activeState.stateName != s.stateName)
+            if (activeState != s && s.transitionToState(activeState.stateName))
             {
                 activeState = s;
                 return stateRan;
@@ -131,7 +131,7 @@ public:
     {
         for (auto &s : states)
         {
-            if (s.transitionToState(activeState.stateName) && activeState.stateName != s.stateName)
+            if (activeState != s && s.transitionToState(activeState.stateName))
             {
                 activeState = s;
                 return true;
@@ -254,13 +254,22 @@ public:
 
         return true;
     }
+
+    /**
+     * @brief Get the name of the active state.
+     * @return The name of the active state.
+     */
+    string getActiveStateName()
+    {
+        return activeState.stateName;
+    }
 };
 
 // NOTE: This is an example of how to use the StateManager library.
 // To run with gcc, use the following command: g++ -std=c++11 -o StateManager StateManager.cpp && ./StateManager
-int i = 0;
+int q = 0;
 
-bool cond()
+bool cond(int i)
 {
     if (i == 1)
     {
@@ -283,12 +292,12 @@ int main()
 
     stateManager.addState("state1");
 
-    stateManager.setStateFunction("state1", cond);
+    stateManager.setStateFunction("state1", []() { return cond(q); });
     stateManager.setTransitionToState("state1", transition);
 
     cout << stateManager.run(true) << endl;
 
-    i = 1;
+    q = 1;
 
     cout << stateManager.run(true) << endl;
 }
