@@ -1,5 +1,5 @@
 // NOTE: This is an example of how to use the StateManager library.
-// To run with gcc, use the following command: g++ -std=c++11 -o StateManager StateManager.cpp && ./StateManager
+// To run with gcc, use the following command: g++ -std=c++11 -o StateManagerTest Test.cpp StateManager.cpp && ./StateManagerTest
 #include <iostream>
 #include <string>
 
