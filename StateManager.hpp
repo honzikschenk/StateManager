@@ -1,6 +1,3 @@
-#ifndef STATEMANAGER_HPP
-#define STATEMANAGER_HPP
-
 /**
  * @brief A library for managing various states (a state machine).
  * @author Honzik Schenk
@@ -10,6 +7,9 @@
  * to add, remove, and configurate various states and manage how they transition
  * between each other. A more common name for this is a state machine.
  */
+
+#ifndef STATEMANAGER_HPP
+#define STATEMANAGER_HPP
 
 #include <string>
 #include <vector>
