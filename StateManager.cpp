@@ -6,6 +6,17 @@
 
 using namespace std;
 
+StateManager::StateManager() : activeState(dummyState)
+{
+    dummyState.stateName = "dummyState";
+    dummyState.stateFunction = dummyStateFunction;
+    dummyState.transitionToState = dummyTransitionToState;
+
+    activeState = dummyState;
+
+    states = vector<State>();
+}
+
 StateManager::State *StateManager::getStateByName(const string stateName)
 {
     for (auto &s : states)
@@ -27,17 +38,6 @@ bool StateManager::dummyStateFunction()
 bool StateManager::dummyTransitionToState(string activeState)
 {
     return false;
-}
-
-StateManager::StateManager() : activeState(dummyState)
-{
-    dummyState.stateName = "dummyState";
-    dummyState.stateFunction = dummyStateFunction;
-    dummyState.transitionToState = dummyTransitionToState;
-
-    activeState = dummyState;
-
-    states = vector<State>();
 }
 
 bool StateManager::run()
