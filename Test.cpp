@@ -24,18 +24,20 @@ bool transition(string activeState)
 
 int main()
 {
-    StateManager stateManager;
+    StateManager *stateManager = new StateManager();
 
-    cout << stateManager.run(true) << endl;
+    cout << (*stateManager).run(true) << endl;
 
-    stateManager.addState("state1");
+    (*stateManager).addState("state1");
 
-    stateManager.setStateFunction("state1", []() { return cond(q); });
-    stateManager.setTransitionToState("state1", transition);
+    (*stateManager).setStateFunction("state1", []() { return cond(q); });
+    (*stateManager).setTransitionToState("state1", transition);
 
-    cout << stateManager.run(true) << endl;
+    cout << (*stateManager).run(true) << endl;
 
     q = 1;
 
-    cout << stateManager.run(true) << endl;
+    cout << (*stateManager).run(true) << endl;
+
+    delete stateManager;
 }

@@ -8,4 +8,5 @@ StateManager is a library that provides easy and efficient management of differe
 
 ## How to run
 
+Run the following command in the terminal to compile and run the test program:
 `g++ -std=c++11 -o StateManagerTest Test.cpp StateManager.cpp && ./StateManagerTest`
